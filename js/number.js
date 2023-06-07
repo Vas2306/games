@@ -1,9 +1,67 @@
-const number1 = prompt('Введите меньшее число из диапазона');
-const number2 = prompt('Введите большее число из диапазона');
-const number = prompt('Введите число, чтобы узнать входит ли оно в данный диапазон');
-if (number > number1 && number < number2) {
-    confirm('Введенное вами число входит в диапазон')
+let first = prompt(
+  "Давай определим, входит ли твое число в диапазон. Введите первое натуральное число - первая граница диапазона",
+  ""
+);
+while (!isNumeric(first)) {
+  alert("Это не число!");
+  first = prompt(
+    "Повторите попытку и еще раз введите первое натуральное число - первая граница диапазона",
+    ""
+  );
+}
+first = Number(first);
+console.log(first);
+
+let second = prompt("Введите второе натуральное число - вторая граница диапазона", "");
+while (!isNumeric(second)) {
+  alert("Это не число!");
+  second = prompt(
+    "Повторите попытку и еще раз введите второе натуральное число - вторая граница диапазона",
+    ""
+  );
+}
+
+second = Number(second);
+console.log(second);
+
+let number = prompt(
+  "Введите натуральное число, которое вы хотите проверить на входимость",
+  ""
+);
+while (!isNumeric(second)) {
+  alert("Это не число!");
+  number = prompt(
+    "Повторите попытку и еще раз введите натуральное число, которое вы хотите проверить на входимость",
+    ""
+  );
+}
+
+function isNumeric(n) {
+  return !isNaN(parseFloat(n)) && isFinite(n);
+}
+// parseFloat(n)  Получаем из строки число с плавающей точкой или NaN в случае неудачи
+// isNaN(n)  Собственно проверяет значение на NaN
+// isFinite(n)  Проверяем является ли переданное значение конечным числом
+
+number = Number(number);
+console.log(number);
+
+let min = 0;
+let max = 0;
+if (first < second) {
+    min = first;
+    max = second;
 }
 else {
-    confirm('Число не входит в диапазон')
+    min = second;
+    max = first;
+}
+console.log(min);
+console.log(max);
+if (number >= min && number <= max) {
+    confirm(`Ваше указанное натуральное число ${number} входит в диапазон [${min};${max}]`);
+}
+else {
+    confirm(`Ваше указанное натуральное число ${number} не входит в диапазон [${min};${max}]`);
+    
 }
