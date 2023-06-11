@@ -39,9 +39,6 @@ while (!isNumeric(second)) {
 function isNumeric(n) {
   return !isNaN(parseFloat(n)) && isFinite(n);
 }
-// parseFloat(n)  Получаем из строки число с плавающей точкой или NaN в случае неудачи
-// isNaN(n)  Собственно проверяет значение на NaN
-// isFinite(n)  Проверяем является ли переданное значение конечным числом
 
 number = Number(number);
 console.log(number);
@@ -59,9 +56,9 @@ else {
 console.log(min);
 console.log(max);
 if (number >= min && number <= max) {
-    confirm(`Ваше указанное натуральное число ${number} входит в диапазон [${min};${max}]`);
+    alert(`Ваше указанное натуральное число ${number} входит в диапазон [${min};${max}]`);
 }
 else {
-    confirm(`Ваше указанное натуральное число ${number} не входит в диапазон [${min};${max}]`);
+    alert(`Ваше указанное натуральное число ${number} не входит в диапазон [${min};${max}]`);
     
 }
